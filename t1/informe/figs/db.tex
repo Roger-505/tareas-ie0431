@@ -1,0 +1,59 @@
+\begin{figure}[!h]
+    \centering
+    \tikzstyle{block} = [draw, fill=white, rectangle, 
+    minimum height=3em, minimum width=4em, node distance=2cm]
+    \tikzstyle{gain} = [draw, fill=white, rectangle, 
+    minimum height=3em, minimum width=2em, node distance=2cm]
+    \tikzstyle{sum} = [draw, fill=white, circle, minimum size=15pt, node distance=2cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+    \begin{tikzpicture}[auto, node distance=3cm]
+        
+        %nodos
+        \node [input, name=input]{};
+        \node [gain, right of=input, xshift=-2em](gain){$K_r$};
+        \node [sum, right of=gain, xshift=0.5em] (sum1) {};
+        \node [block, right of=sum1](mcu){$C(s)$};
+        \node [block, right of=mcu, xshift=2em](actuador){$G_B(s)$};
+        \node [sum, right of=actuador, xshift=1em](sum2){};
+        \node [block, right of=sum2, xshift=2em](proceso){$G_P(s)$};
+        \node [sum, right of=proceso, xshift=1em](sum3){};
+        \node [block, below of=proceso](sensor){$G_s(s)$};
+        \node [sum, below of=sum2](sum4){};
+        \node [block, below of=actuador](transmisor){$G_t(s)$};
+        \node [sum, below of=mcu](sum5){};
+        \node [output, right of=sum3, xshift=-4.5em](output){};
+        \node [input, below of=sum4, yshift=3em](ruidos){};
+        \node [input, below of=sum5, yshift=3em](ruidot){};
+        
+        %señales
+        \draw [-{Latex}] (input) node[name=r, left]{$r(s)$} -- (gain);
+        \draw [-{Latex}] (gain) -- (sum1) node[name=rma, midway, above]{$r ^{\prime}(s)$};
+        \draw [-{Latex}] (sum1) -- (mcu) node[name=e, midway, above]{$e(s)$};
+        \draw [-{Latex}] (mcu) -- (actuador) node[name=u, midway, above]{$u(s)$};
+        \draw [-{Latex}] (actuador) -- (sum2) node[name=m, midway, above]{$m(s)$};
+        \draw [-{Latex}] (sum2) -- (proceso) node[name=mm, midway, above]{$m ^{\prime}(s)$};
+        \draw [-{Latex}] (proceso) -- (sum3) node[name=cc, midway, above]{$c ^{\prime}(s)$};
+        \draw [-{Latex}] (sum3) -- (output) node[name=c, midway, above]{$c(s)$};
+        \draw [-{Latex}] (c) -- (c|-sensor) -- (sensor);
+        \draw [-{Latex}] (sensor) -- (sum4) node[name=yss, midway, above]{$y_s ^{\prime}(s)$};
+        \draw [-{Latex}] (sum4) -- (transmisor) node[name=ys, midway, above]{$y_s(s)$};
+        \draw [-{Latex}] (transmisor) -- (sum5) node[name=ytt, midway, above]{$y _{t}(s)$};
+        \draw [-{Latex}] (sum5) -- (sum1|-sum5) node[name=y, midway, above]{$y(s)$} -- (sum1);
+        \draw [-{Latex}] (ruidos) node[name=ns, below]{$n_s(s)$} -- (sum4) ;
+        \draw [-{Latex}] (ruidot) node[name=nt, below]{$n_t(s)$} -- (sum5); 
+        
+        %simbolos extra (+zzipo de nodo, posición](nombre){label};
+        \node [below right=-4pt of sum5]{$+$};
+        \node [above right=-4pt of sum5]{$+$};
+        \node [below right=-4pt of sum4]{$+$};
+        \node [above right=-4pt of sum4]{$+$};
+        \node [below right=-4pt of sum4]{$+$};
+        \node [below left=-4pt of sum1]{$-$};
+        \node [above left=-4pt of sum1]{$+$};
+    \end{tikzpicture}
+    \caption{Sistema realimentado simplificado}
+    \label{fig2}
+\end{figure}
+

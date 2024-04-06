@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Estilo de plantilla general de reporte     %     
+% Autor: Roger Piovet                        %
+% Perfil de GH: https://github.com/Roger-505 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambulo}[2022/09/12 preambulo]
+
+%%%%%%%%%%%%
+% Paquetes %
+%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}         % tener codificación utf-8                                     
+\usepackage[margin=2cm]{geometry}   % ajustar márgenes del documento
+\usepackage{fancyhdr}               % generar encabezados y pies de página
+\usepackage{multirow}               % generar tablas con filas divididas
+\usepackage{amsmath}                % producir expresiones matemáticas
+\usepackage{amssymb}                % obtener más símbolos matemáticos
+\usepackage{mathrsfs}               % utilizar el comando \mathscr{}
+\usepackage{xcolor}                 % utilizar colores 
+\usepackage{circuitikz}             % generar circuitos por medio de tikz 
+\usepackage{graphicx}               % generar figuras
+\usepackage{parskip}                % modificar distancia entre parrafos
+\usepackage[spanish,es-nodecimaldot]{babel} % utilizar textos en español
+\usepackage{siunitx}                % utilizar cantidades con unidades SI
+\usepackage{enumitem}               % crear listas modificadas
+\usepackage{setspace}               % modificar distancia entre líneas de texto
+\usepackage{mathtools}              % provee herramientas matemáticas adicionales
+\usepackage{tikz, pgfplots}         % generar figuras y gráficos vectorizados
+\usepackage{cancel}                 % provee herramientas para componer cancelaciones en ecuaciones
+\usepackage{xargs}                  % definir comandos con más argumentos opcionales
+\usepackage{caption}                % generar encabezados modificados para figuras, tablas, ...
+\usepackage{hyperref}               % generar referencias a documentos, urls, ...
+\usepackage{empheq}                 % generar énfasis para ecuaciones
+\usepackage{listings}               % generar listado de código fuente
+\usepackage{mdframed}               % generar bordes cuadrados alrededor de texto
+
+%%%%%%%%%%%%%%%%%%%%
+% Paquetes de TiKZ %
+%%%%%%%%%%%%%%%%%%%%
+
+\usetikzlibrary{decorations.markings}   % generar decoraciones sobre figuras
+\usetikzlibrary{arrows.meta}            % generar flechas modificadas
+\usetikzlibrary{positioning}            % para tener más posibilidades de posicionar nodos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setups de paquetes y variablees %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{compat=1.18}   % escoger versión para generación de gráficos
+\hypersetup{                % configuración de referencias con hyperref
+colorlinks=true,
+urlcolor=black,
+linkcolor=red
+}
+\setlength{\parindent}{0pt}             % tamaño de sangrías
+\setlength{\headheight}{14.49998pt}     % tamaño de separación entre encabezado y texto
+\addtolength{\topmargin}{-0.49998pt}    % tamaño de margen superior
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definiciones de comandos %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtBeginDocument{\RenewCommandCopy\qty\SI}  % para generación de cantidades con unidades 
+\newcommand{\boxedeq}[2]{\begin{empheq}[box={\fboxsep=6pt\fbox}]{align}\label{#1}#2\end{empheq}} % generar ecuaciones encasilladas
+
+\newcommand{\Z}{\mathbb{Z}}     % numeros enteros
+\newcommand{\N}{\mathbb{N}}     % numeros naturales
+\newcommand{\C}{\mathbb{C}}     % numeros complejos
+\newcommand{\R}{\mathbb{R}}     % numeros reales
+\renewcommand{\exp}[1]{e^{#1}}  % exponencial 

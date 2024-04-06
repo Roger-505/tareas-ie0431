@@ -1,0 +1,42 @@
+\section{Objetivos}
+
+A continuación, se muestra el objetivo a lograr con la elaboración de esta tarea:
+\begin{itemize}
+    \item Identificar componentes del sistema de control de lazo cerrado en un caso
+de aplicación y la simulación básica del sistema de control realimentado.
+\end{itemize}
+
+\section{Parte 1}
+
+\hspace{1.27cm} En la figura 1 se muestra el esquema de control implementado por un laboratorio farmacéutico para controlar el nivel de pH en un antibiótico y mantenerlo en un valor de 8.
+El pH es una medida del nivel de acidez o alcalinidad de una solución acuosa y se suele medir a una temperatura de referencia de \SI{25}{\celsius}, por lo cual se procura tener el cuarto de laboratorio bajo dichas condiciones ambientales al hacer mediciones de dicha variable. 
+Es importante recordar que al disminuir el valor del pH se incrementa la acidez de una sustancia. 
+El nivel de pH en el tanque se mide utilizando un medidor de pH (phímetro), el cual es un dispositivo que genera un nivel de tensión directa, relacionado linealmente con el nivel de pH tal y como se observa en la figura 2. 
+Dicho nivel de tensión es procesado por un transmisor que envía una señal de corriente de 4 mA a 20 mA al controlador.
+
+\hspace{1.27cm} De acuerdo con la figura 1, al tanque ingresan dos sustancias: Una solución A y una solución B. 
+La solución A es una sustancia conocida como base y la cantidad de dicha sustancia que se agrega al tanque puede variar según su disponibilidad y también debido a la demanda de producción del antibiótico. 
+Para variar la cantidad de la solución A se utiliza la válvula 1 de apertura manual. Por otro lado, al regular la cantidad de la sustancia B (un ácido) se controla el nivel de pH del antibiótico en el tanque, con lo que, si se agregara más de esta solución al tanque, se disminuiría el pH del antibiótico. 
+La apertura de la válvula de salida suele ser constante, sin embargo, podría variarse (utilizando la válvula 2 de apertura manual) dependiendo de la demanda de producción del antibiótico.
+
+\begin{itemize}
+    \item (40 puntos) Dibuje un diagrama de bloques completo del proceso y su sistema de control, describiendo todas las variables físicas y las señales involucradas en él. 
+        Indique y describa dos posibles perturbaciones para este sistema de control según la definición de la variable controlada.
+\end{itemize}
+
+\pagebreak
+
+\textit{Solución}
+Considere el siguiente diagrama de bloques del proceso:
+
+\input{figs/db.tex}
+
+A continuación, se muestra un conjunto de tablas que representan las señales, perturbaciones, y funciones de transferencia que conforman el sistema de control realimentado representado por medio del diagrama de bloques elaborado anteriormente.
+
+\input{figs/señales.tex}
+\pagebreak
+\input{figs/perturbaciones.tex}
+\pagebreak
+\input{figs/FT.tex}
+\pagebreak
+
