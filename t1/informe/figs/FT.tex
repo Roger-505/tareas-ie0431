@@ -1,7 +1,7 @@
 \begin{figure}[!h]
     \centering
     \setlength\extrarowheight{3mm}
-    \begin{tabular}{p{3cm}p{3cm}p{10cm}}
+    \begin{tabular}{>{\centering\arraybackslash}p{3cm}p{3cm}p{10cm}}
         \toprule\\[-2.5em]
         Abreviación & Clasificación & Descripción\\
         \midrule
@@ -11,9 +11,11 @@
         $G_P(s)$ & Proceso & Tanque con solución acuosa, cuyo pH es modificado en base al caudal de sustancia ácida/alkalina que le ingrese\\
         $G_S(s)$ & Sensor & pHímetro, que convierte el nivel de pH a una señal de tensión DC\\
         $G_t(s)$ & Transmisor & Convierte una señal de tensión DC correspondiente al nivel de pH, a una señal de corriente\\
+        $G_T(s)$ & Perturbación & Asociada a la perturbación $d_T(s)$\\
+        $G_{dp}(s)$ & Perturbación & Asociada a la perturbación $d_{dp}(s)$\\
         \bottomrule
     \end{tabular}
-    \caption{Funciones de transferencia del sistema de control realimentado}
-    \label{t2}
+    \captionof{table}{Funciones de transferencia del sistema de control realimentado}
+    \label{t1}
 \end{figure}
 
