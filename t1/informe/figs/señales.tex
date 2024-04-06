@@ -1,0 +1,25 @@
+\begin{figure}[!h]
+    \centering
+    \setlength\extrarowheight{3mm}
+    \begin{tabular}{>{\centering\arraybackslash}p{2.5cm}p{3.5cm}>{\centering\arraybackslash}p{3cm}p{7cm}}
+        \toprule\\[-2.5em]
+        Abreviación & Clasificación & Valor/Rango& Descripción\\
+        \midrule
+        $r(s)$ & Referencia & 8 & Referencia de pH para el tanque con solución acuosa\\
+        $r ^{\prime}(s)$ & Referencia & -- & Señal de corriente, la cual fue transducida a partir de una señal de pH\\
+        $e(s)$ & Error & -- & Señal de corriente, la cual corresponde a la diferencia entre la referencia y la señal realimentada\\
+        $u(s)$ & Señal de control & -- & Señal producida por el controlador para modificar el porcentaje de apertura de la válvula de control de pH\\
+        $m(s)$ & Variable manipulada & -- & Caudal de la sustancia B, la cual es utilizada para modificar la alcalinidad de la sustancia en el tanque\\
+        $m ^{\prime}(s)$ & Variable manipulada & --  & Caudal de la sustancia B, que también contempla el efecto de las perturbaciones $d_A(s)$ y $d_O(s)$\\
+        $c ^{\prime}(s)$ & Variable controlada & 0 -- 14 & Nivel de pH del tanque, sin considerar el efecto de la perturbacióń $d_T(s)$\\
+        $c(s)$ & Variable controlada & 0 -- 14 & Nivel de pH del tanque\\
+        $y_s ^{\prime}(s)$ & Señal de medición &  \SI{-0.4}{V} -- \SI{0.4}{V} &  Señal de tensión DC, la cual corresponde a la medición del pHímetro, sin contar el efecto del ruido de medición $n_s(s)$\\
+        $y_s(s)$ & Señal de medición & \SI{-0.4}{V} -- \SI{0.4}{V} & Señal de tensión DC, la cual corresponde a la medición del pHímetro\\
+        $y_t(s)$ & Señal de medición & \SI{4}{mA} -- \SI{20}{mA}  & Señal de corriente, la cual corresponde a la transmisión de la medición del pHímetro, sin considerar el efecto del ruido de transmisión $n_t(s)$\\
+        $y(s)$ & Señal realimentada & \SI{4}{mA} -- \SI{20}{mA}  & Señal de corriente, la cual corresponde a la transmisión de la medición del pHímetro\\
+        \bottomrule
+    \end{tabular}
+    \caption{Señales del sistema de control realimentado}
+    \label{t1}
+\end{figure}
+
