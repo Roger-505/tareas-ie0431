@@ -23,10 +23,14 @@
         \node [sum, below of=sum2](sum4){};
         \node [block, below of=actuador](transmisor){$G_t(s)$};
         \node [sum, below of=mcu](sum5){};
-        \node [output, right of=sum3, xshift=-4.5em](output){};
+        \node [output, right of=sum3, xshift=-3.5em](output){};
         \node [input, below of=sum4, yshift=3em](ruidos){};
         \node [input, below of=sum5, yshift=3em](ruidot){};
-        
+        \node [block, above of=sum2, yshift=1em](gddp){$G _{dp}(s)$};       
+        \node [block, above of=sum3, yshift=1em](gt){$G_T(s)$};       
+        \node [input, right of=gddp, xshift=-2em](ddp){};    
+        \node [input, left of=gt, xshift=2em](dt){};
+
         %señales
         \draw [-{Latex}] (input) node[name=r, left]{$r(s)$} -- (gain);
         \draw [-{Latex}] (gain) -- (sum1) node[name=rma, midway, above]{$r ^{\prime}(s)$};
@@ -43,7 +47,11 @@
         \draw [-{Latex}] (sum5) -- (sum1|-sum5) node[name=y, midway, above]{$y(s)$} -- (sum1);
         \draw [-{Latex}] (ruidos) node[name=ns, below]{$n_s(s)$} -- (sum4) ;
         \draw [-{Latex}] (ruidot) node[name=nt, below]{$n_t(s)$} -- (sum5); 
-        
+        \draw [-{Latex}] (ddp) -- (gddp) node[name=disp, midway, above]{$d _{dp}(s)$};
+        \draw [-{Latex}] (gddp) -- (sum2) node[name=dddp, midway, left]{$d _{dp} ^{\prime}(s)$};
+        \draw [-{Latex}] (dt) -- (gt) node[name=temp, midway, above]{$d _{t}(s)$};
+        \draw [-{Latex}] (gt) -- (sum3) node[name=dddt, midway, left]{$d _{t} ^{\prime}(s)$};
+
         %simbolos extra (+zzipo de nodo, posición](nombre){label};
         \node [below right=-4pt of sum5]{$+$};
         \node [above right=-4pt of sum5]{$+$};
@@ -52,6 +60,10 @@
         \node [below right=-4pt of sum4]{$+$};
         \node [below left=-4pt of sum1]{$-$};
         \node [above left=-4pt of sum1]{$+$};
+        \node [above right=-4pt of sum2]{$+$};
+        \node [below left=-4pt of sum2]{$+$};
+        \node [above right=-4pt of sum3]{$+$};
+        \node [below left=-4pt of sum3]{$+$};
     \end{tikzpicture}
     \caption{Sistema realimentado simplificado}
     \label{fig2}
