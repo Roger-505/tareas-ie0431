@@ -1,0 +1,36 @@
+\begin{figure}[!h]
+    \centering
+    \tikzstyle{block} = [draw, fill=white, rectangle, 
+    minimum height=3em, minimum width=4em, node distance=2cm]
+    \tikzstyle{gain} = [draw, fill=white, rectangle, 
+    minimum height=3em, minimum width=2em, node distance=2cm]
+    \tikzstyle{sum} = [draw, fill=white, circle, minimum size=15pt, node distance=2cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+    \begin{tikzpicture}[auto, node distance=3cm]
+       \node [input, name=input]{};
+       \node [sum, right of=input](sum1){};
+       \node [block, right of=sum1](controlador){$C(s)$};
+       \node [sum, right of=controlador](sum2){};
+       \node [block, right of=sum2](proceso){$P(s)$};
+       \node [output, right of=proceso](output){};
+        \node [input, above of=sum2, yshift=-4em](perturbación){};
+
+       \draw [-{Latex}] (input) -- (sum1) node[name=r, midway, above]{$r(s)$};
+       \draw [-{Latex}] (sum1) -- (controlador) node[name=error, midway, above]{$e(s)$};
+       \draw [-{Latex}] (controlador) -- (sum2) node[name=control, midway, above]{$u(s)$};
+       \draw [-{Latex}] (sum2) -- (proceso) node[name=lmao, midway, above]{};
+       \draw [-{Latex}] (proceso) -- (output) node[name=y, midway, above]{$y(s)$};
+       \draw [-{Latex}] (y) -- ++(0,-5em) coordinate (ort) -- (ort) -- (ort-|sum1) -- (sum1);
+       \draw [-{Latex}] (perturbación) node[above]{$d(s)$} -- (sum2);
+
+        \node [above left=-4pt of sum1]{$+$};
+        \node [below left=-4pt of sum1]{$-$};
+        \node [above right=-4pt of sum2]{$+$};
+        \node [below left=-4pt of sum2]{$+$};
+    \end{tikzpicture}
+    \caption{Sistema de control realimentado}
+    \label{figdb}
+\end{figure}
+
