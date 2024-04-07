@@ -174,3 +174,70 @@ set(x4,'FontSize',12);
 set(leg4,'Interpreter','latex');
 set(leg4,'FontSize',12);
 hold off;
+
+%% PARTE C
+% Grafica de comparacion de las partes A y B
+% Respuesta del sistema
+figure (5) ;
+x5=xlabel ('$t$ [s]');
+hold on;
+plot (t , yA, ...
+    'LineWidth', 2.5, ...
+    'Color', 'b');
+plot (t , yB, ...
+    'LineWidth', 2.5, ...
+    'Color', 'c');
+plot (t , d, '--', ...
+    'LineWidth', 2.5, ...
+    'Color', 'r');
+plot (t , r, '--', ...
+    'LineWidth', 2.5, ...
+    'Color', 'k');
+grid on;
+leg5=legend('$y_A(t)$', '$y_B(t)$', '$d(t)$','$r(t)$');
+set(x5,'Interpreter','latex');
+set(x5,'FontSize',12);
+set(leg5,'Interpreter','latex');
+set(leg5,'FontSize',12);
+hold off;
+
+% Respuesta del controlador
+figure (6) ;
+x6=xlabel ('$t$ [s]');
+hold on;
+plot (t , uA, ...
+    'LineWidth', 2.5, ...
+    'Color', 'b');
+plot (t , uB, ...
+    'LineWidth', 2.5, ...
+    'Color', 'c');
+plot (t , d, '--', ...
+    'LineWidth', 2.5, ...
+    'Color', 'r');
+plot (t , r, '--', ...
+    'LineWidth', 2.5, ...
+    'Color', 'k');
+grid on;
+leg6=legend('$u_A(t)$', '$u_B(t)$', '$d(t)$','$r(t)$');
+set(x6,'Interpreter','latex');
+set(x6,'FontSize',12);
+set(leg6,'Interpreter','latex');
+set(leg6,'FontSize',12);
+hold off;
+
+% Mapas de polos y ceros de Myr y Myd de cada sistema de control. 
+% Parte A
+figure (7);
+pzplot(MyrA, 'rO');
+
+figure (8);
+pzplot(MydA, 'rO');
+
+pzplot(MydA, 'rO');
+
+% Parte B
+figure (9);
+pzplot(MyrB, 'rO');
+
+figure (10);
+pzplot(MydB, 'rO');
