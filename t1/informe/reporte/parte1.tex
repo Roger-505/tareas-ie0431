@@ -44,5 +44,12 @@ A continuación, se muestra un conjunto de tablas que describen las funciones de
 \input{figs/señales.tex}
 \pagebreak
 \input{figs/perturbaciones.tex}
+
+\vspace{1em}
+
+\begin{mdframed}
+\textbf{Puntos extra:} Este sistema de control busca que el pH (variable controlada) se mantenga en un nivel específico. Esto se logra por medio del controlador, el cual modula el porcentaje de apertura de la válvula de control de pH. Dicha válvula permite el paso de la solución B al tanque, la cual es una sustancia \textit{ácida}. Ya que este sistema de control debe lograr rechazar el efecto de las perturbaciones sobre el nivel de pH del tanque, si empieza a entrar más solución A, la cual es una sustancia \textit{alcalina}, el pH del tanque va bajar. Dicho nivel de pH sería medido por medio del pHímetro y transmitido al controlador por medio del transmisor de pH. Ya que el nivel de pH habría disminuido, el controlador empezará a incrementar el porcentaje de apertura de la válvula de control de pH para permitir un mayor paso de caudal de solución B, lo cual eventualmente rechazará el efecto que tuvo el incremento de caudal de la sustancia A hacia dentro del tanque, para que finalmente el sistema de control busque seguir la referencia, y dado suficiente tiempo, el pH del tanque se estabilizará en 8.
+\end{mdframed}
+
 \pagebreak
 
