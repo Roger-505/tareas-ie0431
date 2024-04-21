@@ -36,7 +36,12 @@
 \usepackage{mdframed}               % generar bordes cuadrados alrededor de texto
 \usepackage{physics}                % generar derivadas
 \usepackage{booktabs}               % para generar tablas más bonitas
-\usepackage{enumitem}
+\usepackage{enumitem}               % para generar listados bonitos
+\usepackage{esvect}                 % para generar vectores bonitos 
+\usepackage{accents}                % para generar subindices multiples
+\usepackage{etoolbox}               % para generar matrices con mate display adentro
+\usepackage{cancel}                 % para hacer cancelaciones bonitas
+\usepackage{etoolbox}               % para matrices con display style math
 
 %%%%%%%%%%%%%%%%%%%%
 % Paquetes de TiKZ %
@@ -63,11 +68,15 @@ linkcolor=blue
 % Definiciones de comandos %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\AtBeginDocument{\RenewCommandCopy\qty\SI}  % para generación de cantidades con unidades 
+\AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}} % matrices con display style math
+\AtBeginEnvironment{bmatrix}{\everymath{\displaystyle}}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}              % para generación de cantidades con unidades 
 \newcommand{\boxedeq}[2]{\begin{empheq}[box={\fboxsep=6pt\fbox}]{align}\label{#1}#2\end{empheq}} % generar ecuaciones encasilladas
 
 \newcommand{\Z}{\mathbb{Z}}     % numeros enteros
 \newcommand{\N}{\mathbb{N}}     % numeros naturales
 \newcommand{\C}{\mathbb{C}}     % numeros complejos
 \newcommand{\R}{\mathbb{R}}     % numeros reales
+\renewcommand{\L}[1]{\mathscr{L}\left\{#1\right\}}  % laplace
 \renewcommand{\exp}[1]{e^{#1}}  % exponencial 
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % para numeración de ecuaciones

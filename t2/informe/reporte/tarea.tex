@@ -14,11 +14,11 @@ el caudal de entrada $Q_e$ ante posibles perturbaciones en el caudal de salida $
 
 El modelo dinámico del proceso es:
 \begin{align*}
-    A\dv{H(t)}{t} = Q_e(t) -Q_s(t) = Q_e(t) - X _{vs} (t) K _{vs} \sqrt{\rho g H(t)}
+    A\dv{H(t)}{t} = Q_e(t) -Q_s(t) = Q_e(t) - X _{vs} (t) K _{vs} \sqrt{\rho g H(t)}\numberthis\label{eq1}
 \end{align*}
 La característica estática es:
 \begin{align*}
-    H(t) = f (Q_e, X _{vs}) = \frac{1}{\rho g} \left( \frac{Q_e(t)}{X _{vs} (t) K _{vs}} \right) ^{2}
+    H(t) = F (Q_e, X _{vs}) = \frac{1}{\rho g} \left( \frac{Q_e(t)}{X _{vs} (t) K _{vs}} \right) ^{2}\numberthis\label{eq2}
 \end{align*}
 
 El modelo linealizado es:
@@ -26,7 +26,7 @@ El modelo linealizado es:
 \addtolength\jot{6pt} 
 \begin{align*}
     h (s) = \frac{K _{1}}{ Ts + 1} q _{e} (s) &+ \frac{K _{2}}{Ts + 1} x _{vs} (s)\\
-    K _{1} = \frac{2}{X _{vs0} K _{vs}} \sqrt{ \frac{H_0}{\rho g}}, \quad K _{2} =& - \frac{2 H_0}{X _{vs0}}, \quad T = \frac{2A}{X _{vs0} K _{vs}} \sqrt{ \frac{H_0}{\rho g}}
+    K _{1} = \frac{2}{X _{vs0} K _{vs}} \sqrt{ \frac{H_0}{\rho g}}, \quad K _{2} =& - \frac{2 H_0}{X _{vs0}}, \quad T = \frac{2A}{X _{vs0} K _{vs}} \sqrt{ \frac{H_0}{\rho g}} \numberthis\label{eq3}
 \end{align*}
 
 \newpage
@@ -41,20 +41,22 @@ En donde:
         \midrule
         $A$ & área transversal del tanque & \SI{5}{\metre\squared}\\
         $g$ & aceleración de la gravedad & \SI{9.81}{\metre\per\second\squared}\\
-        $H$ & nivel de líquido en el tanque & [2.24 2.5 2.95] m\\
+        $H$ & nivel de líquido en el tanque & [2.24 \textbf{2.5} 2.95] m\\
             & Altura máxima del tanque & \SI{3.6}{m}\\
             & Ámbito de medición del sensor & \SI{0}{m} -- \SI{3.25}{m} \\
         $Q _{e}$ & caudal de líquido de entrada & -- \\
         $Q _{s}$ & caudal de líquido de salida & -- \\
         $K _{vs}$ & constante de la válvula de salida del tanque & 0.001 \\
-        $X _{vs}$ & apertura de la válvula de salida del tanque & \{0.4 0.5 0.6\} \\
+        $X _{vs}$ & apertura de la válvula de salida del tanque & \{0.4 \textbf{0.5} 0.6\} \\
         $\rho$ & densidad del líquido (agua de mar) & \SI{1027}{kg/\metre\cubed} \\
         $t$ & tiempo & s \\
         \bottomrule
     \end{tabular}
     \captionof{table}{Variables y parámetros del proceso control de nivel}
-    \label{lmao}
+    \label{t1}
 \end{figure}
+
+\newpage
 
 Para este sistema:
 

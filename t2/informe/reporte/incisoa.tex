@@ -1,10 +1,10 @@
-\textit{Solución.} Para obtener el modelo linealizado, considere primero el vector de estados \\$ \textbf{x} = [H(t)]$ y el vector de entradas $ \textbf{u} = [Q_e(t),\,Xvs(t)] ^{T}$.
+\textit{Solución.} Para obtener el modelo linealizado, considere primero el vector de estados \\$ \textbf{x} = [H(t)]$ y el vector de entradas $ \textbf{u} = [Q_e(t) \ Xvs(t)] ^{T}$.
 Al evaluar la \hyperref[eq2]{característica estática} en el punto de operación $ \textbf{x} _{0},\, \textbf{u} _{0}$, se busca $Q _{e,\,0}$. Note que $H _{0} = \SI{2.5}{m}$ y $X _{vs,\,0} = 0.5$ \label{po} se obtienen directamente del \hyperref[t1]{Cuadro 1}.
 \begin{align*}
     H _{0} &= F (Q _{e,\,0},\,X _{vs,\,0})\\
            &= \frac{1}{\rho g} \left( \frac{Q _{e,\,0}}{X _{vs,\,0}K _{vs}} \right) ^{2}\\
     \frac{Q _{e,\,0}}{X _{vs,\,0} K _{vs}} &= \pm \sqrt{\rho g H _{0}}
-    \intertext{Note que la cantidad en el lado izquierdo de la ecuación siempre es positiva, ya que $Q _{e,\,0}$ se refiere al caudal \textbf{entrante} y no saliente, $X _{vs} \in [0.4,\,0.6]$ y $K _{vs} = 0.001$, según el \hyperref[t1]{Cuadro 1}. Por tanto:}
+    \intertext{Note que la cantidad en el lado izquierdo de la ecuación siempre es positiva, ya que $Q _{e,\,0}$ se refiere al caudal \textbf{entrante} y no saliente, $X _{vs} \in [0.4 \ 0.6]$ y $K _{vs} = 0.001$, según el \hyperref[t1]{Cuadro 1}. Por tanto:}
     Q _{e,\,0} &= X _{vs,\,0} K _{vs} \sqrt{\rho g H _{0}}\\
     Q _{e,\,0} &= \SI{0.07953}{\metre\cubed\per\second}
 \end{align*}
@@ -21,3 +21,71 @@ A partir del valor anterior y \hyperref[po]{el resto de valores}, el punto de op
                     \end{bmatrix}\numberthis\label{eq5}
 \end{align*}
 
+Habiendo encontrado el punto de operación, ahora se procede con la linealización. 
+Considere el \hyperref[eq1]{modelo dinámico del proceso} $\dot{H}(t) = f( \textbf{x},\, \textbf{u})$, tal que:
+\begin{align*}
+    f ( \textbf{x},\, \textbf{u}) = \frac{Q _{e} (t)}{A} - \frac{X _{vs} (t)K _{vs} \sqrt{\rho g H (t)}}{A}\numberthis\label{4}
+\end{align*}
+Considere los estados y entradas lineales dados por los vectores $\delta \textbf{x} = [h(t)]$ y \\ $\delta \textbf{u} = [q _{e} (t) \ x _{vs} (t)] ^{T}$, de tal manera que:
+\begin{align*}
+    \delta \textbf{x} &= \textbf{x} - \textbf{x} _{0}\\
+    \delta \textbf{u} &= \textbf{u} - \textbf{u} _{0}
+\end{align*}
+Al realizar una linealización por medio de series de Taylor de orden 1 alrededor del punto de operación, se obtiene:
+\begin{align*}
+    \delta \dot{\textbf{x}} &= \textbf{J}_{f}( \textbf{x}) | _{ \textbf{x} _ 0,\, \textbf{u}_0}\delta \textbf{x} + \textbf{J}_{f}( \textbf{u}) | _{ \textbf{x} _ 0,\, \textbf{u}_0}\delta \textbf{u}\numberthis\label{eq6}
+\end{align*}
+Donde $ \textbf{J} _{f}$ es la matriz jacobiana, la cual es evaluada en el punto de operación $ \textbf{x} _{0},\, \textbf{u} _{0}$. 
+Dada una función $ \textbf{f}:\R ^{n}\to\R ^{m}$ cuyas derivadas parciales existen en todo $\R ^{n}$, y $f _{i}$ las componentes esscalares de $ \textbf{f}$, tal que $i \in \{1,\,2,\,3,\,\cdots,\,m\}$. Se define la matriz jacobiana de $ \textbf{f}$ en un punto $ \textbf{y}\in \R ^{n}$ como:
+\begin{align*}
+    \textbf{J} _{f}( \textbf{y}) =  \begin{bmatrix}
+                                        \pdv{f_1}{y_1}  & \pdv{f_1}{y_2} & \cdots & \pdv{f_1}{y_n}\\[1em]
+                                        \pdv{f_2}{y_1} & \pdv{f_2}{y_2} & \cdots & \pdv{f_2}{y_n}\\[1em]
+                                        \vdots & \vdots                            & \ddots        &\vdots\\[1em]
+                                        \pdv{f_m}{y_1} & \pdv{f_m}{y_2} & \cdots & \pdv{f_m}{y_n}\\[1em]
+                                    \end{bmatrix}
+\end{align*}
+Aplicando esto al \hyperref[eq6]{proceso linealizado}, las matrices jacobianas $ \textbf{J} _{f} ( \textbf{x})$ y $ \textbf{J} _{f} ( \textbf{u})$ son:
+\begin{alignat*}{1}
+    \textbf{J} _{f} ( \textbf{x} ) &=  \left[ \pdv{f}{H}  \,( \textbf{x},\, \textbf{u}) \right]\numberthis\label{eq7}\\
+    \textbf{J} _{f}  ( \textbf{u}) &=  \left[ \pdv{f}{Q _{e}}\, ( \textbf{x},\, \textbf{u}) \quad \pdv{f}{X _{vs}} \, ( \textbf{x},\, \textbf{u}) \right]\numberthis\label{eq8}
+\end{alignat*}
+Al calcular cada una de las derivadas parciales en las expresiones anteriores, se tiene que:
+\begin{align*}
+    \pdv{f}{H} \,( \textbf{x},\, \textbf{u})   &= \pdv{}{H} \left(\frac{Q _{e} (t)}{A} - \frac{X _{vs} (t)K _{vs} \sqrt{\rho g H (t)}}{A}\right)\\
+                &= - \frac{ K _{vs} X _{vs}(t)}{2A} \sqrt{ \frac{\rho g}{ H (t)}}\\
+    \pdv{f}{Q _{e}}\,  ( \textbf{x},\, \textbf{u})  &= \pdv{}{Q _{e}} \left(\frac{Q _{e} (t)}{A} - \frac{X _{vs} (t)K _{vs} \sqrt{\rho g H (t)}}{A}\right)\\
+                    &= \frac{1}{A}\\
+    \pdv{f}{X _{vs}} \,  ( \textbf{x},\, \textbf{u}) &= \pdv{}{X _{vs}} \left(\frac{Q _{e} (t)}{A} - \frac{X _{vs} (t)K _{vs} \sqrt{\rho g H (t)}}{A}\right)\\
+                     &= - \frac{K _{vs} \sqrt{\rho g H (t)}}{A}\\
+\end{align*}
+Al evaluar los valores anteriores anteriores en el punto de operación y sustituirlos en \hyperref[eq7]{las matrices jacobianas}, se obtiene:
+\begin{align*}
+    \textbf{J} _{f} ( \textbf{x} )|_{ \textbf{x}_0,\, \textbf{u}_0} &= \left[- \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}}\right]\\
+    \textbf{J} _{f}  ( \textbf{u})|_{ \textbf{x}_0,\, \textbf{u}_0} &= \left[ \frac{1}{A} \quad -\frac{K _{vs} \sqrt{\rho g H_0}}{A}\right]\\
+\end{align*}
+Sustituyendo estas matrices en el \hyperref[eq6]{proceso linealizado}, se obtiene:
+\begin{align*}
+    \delta \dot{\textbf{x}} &= \left[  - \frac{K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{H _{0}}} \right] \delta \textbf{x} +  \left[ \frac{1}{A} \quad -\frac{K _{vs} \sqrt{\rho g H_0}}{A}\right] \delta \textbf{u}\\
+    [\dot{h }(t)] &= \left[ - \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}}\right] \cdot [h(t)] +  \left[ \frac{1}{A} \quad -\frac{K _{vs} \sqrt{\rho g H_0}}{A}\right] \cdot \begin{bmatrix} q _{e} (t)\\x _{vs} (t)\end{bmatrix}\\
+    \dot{ h } (t) &=  - \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}} h (t) +  \frac{1}{A} q _{e} (t) -\frac{K _{vs} \sqrt{\rho g H_0}}{A} x _{vs} (t)
+\end{align*}
+Aplicando la transformada de Laplace a la ecuación anterior, por la propiedad lineal de la transformada se tiene:
+\begin{align*}
+    \L{\dot{ h } (t)}&=  - \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}} \L{h(t)} +  \frac{1}{A} \L{q _{e} (t)} -\frac{K _{vs} \sqrt{\rho g H_0}}{A} \L{x _{vs} (t)}
+\end{align*}
+
+Sea $\L{h(t)}=h(s)$, $\L{ x _{vs}(t)} = x _{vs}(s)$, y $\L{q _{e} (t)} = q _{e} (s)$. La transformada de Laplace de la $n$-ésima derivada de $h(t)$ viene dada por:
+\begin{align*}
+    \L{h^{(n)}(t)}&=s^nh(s)-\sum_{k=1}^n s^{n-k}h^{(k-1)}(0)\\[0.5em]
+    &=s^nh(s)-s^{n-1}h(0)-s^{n-2}h^\prime(0)-s^{n-3}h^{\prime\prime}(0)-\cdots-h^{(n-1)}(0)
+\end{align*}
+Dado que el punto de operación dado por las variables no lineales ya toman en cuenta las condiciones iniciales del sistema, se considera que las variables lineales poseen condiciones inciales nulas. Por tanto, se deduce que $\L{h ^{(n)}(t)} = s ^{n} h (s)$. Con $n = 1$, se tiene:
+\begin{align*}
+     sh(s) =  - \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}} h (s) +  \frac{1}{A} q _{e} (s) -\frac{K _{vs} \sqrt{\rho g H_0}}{A} x _{vs} (s)\\
+     \frac{ K _{vs} X _{vs,\,0}}{2A} \sqrt{ \frac{\rho g}{ H _0}} h(s)\underbrace{\left(\frac{2A}{K _{vs} X _{vs,\,0}} \sqrt{ \frac{H _{0}}{\rho g}}s+ 1\right)}_{Ts + 1} = \frac{1}{A} q _{e} (s) -\frac{K _{vs} \sqrt{\rho g H_0}}{A} x _{vs} (s)\\
+     h(s) = \frac{2\cancel{A}}{K _{vs} X _{vs,\,0}} \sqrt{ \frac{H _{0}}{\rho g}}\frac{1}{\cancel{A}} \cdot \frac{q _{e}(s)}{Ts + 1} - \frac{2 \cancel{A}}{\cancel{K _{vs}} X _{vs,\,0}} \sqrt{ \frac{H _{0}}{\cancel{\rho g}}}\frac{\cancel{K _{vs}} \sqrt{\cancel{\rho g} H_0}}{\cancel{A}}\cdot\frac{x _{vs}(s)}{Ts + 1}\\
+     h (s) = \underbrace{\frac{2}{K _{vs} X _{vs,\,0}} \sqrt{ \frac{H _{0}}{ \rho g}}}_{K_1} \cdot \frac{q _{e} (s)}{Ts + 1} + \underbrace{\left( -\frac{2H _{0}}{X _{vs,\,0}} \right)}_{K_2} \cdot \frac{x _{vs} (s)}{Ts + 1}\\
+     \Aboxed{h (s) = \frac{K_1}{Ts +1 } q _{e} (s) + \frac{K_2}{Ts + 1} x _{vs}(s)}
+\end{align*}
+Note que los parámetros $K_1$, $K_2$, y $T$ coinciden con los \hyperref[eq3]{parámetros del modelo linealizado por demostrar}.
