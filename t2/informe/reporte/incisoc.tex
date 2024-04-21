@@ -1,0 +1,12 @@
+\textit{Solución.} Debido a que la variable manipulada es el caudal de entrada $Q _{e}(t)$, se debe diseñar la constante de la válvula $K _{VC}$ en función de su valor máximo $Q _{e,\,max}$ para que la acción de control esté acotada en el rango de 0\% -- 100\%. Dicho valor debe ser encontrado a partir de la característica estática. Evaluando la ecuación \hyperref[qe]{4} en $Q _{e,\,max}$, dicho valor se obtendrá cuando el nivel del tanque $H (t)$ y la apertura de la válvula de salida del tanque $X _{vs} (t)$ sean máximos. Según el \hyperref[t1]{Cuadro 1}, $H _{max} = \SI{2.95}{m}$ y $X _{vs,\,max} = 0.6$, por tanto:
+\begin{align*}
+    Q _{e,\,max} &= X _{vs,\,max} K _{vs} \sqrt{\rho g H _{max}}\\
+    Q _{e,\,max} &= \SI{0.1034}{\metre\cubed\per\second}
+\end{align*}
+Y por tanto, la constante de la válvula $K _{VC}$ vendrá dada por:
+\begin{align*}
+    K _{VC} &= \frac{Q _{e,\,max}}{100\%}\\
+    \Aboxed{K _{VC} &= \SI{0.001034}{\metre\cubed\per\second\per\percent}}
+\end{align*}
+
+
