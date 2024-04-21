@@ -63,6 +63,8 @@ Para este sistema:
 partir del modelo dinámico del sistema, utilizando el procedimiento algebraico de
 linealización visto en clase, y a partir del mismo demuestre la obtención de las
 respectivas funciones de transferencia.
+
+\input{reporte/incisoa.tex}
 \end{enumerate}
 
 Utilizando la plantilla \texttt{Tarea\_1.m} de MATLAB disponible en mediación virtual, calcule 
@@ -70,12 +72,19 @@ Utilizando la plantilla \texttt{Tarea\_1.m} de MATLAB disponible en mediación v
 \begin{enumerate}[label=\alph*), start=2]
     \item (5 puntos) La ganancia del transmisor de nivel $K_t$. (\SI{}{\%\metre\tothe{-1}}) de forma que la señal
 realimentada esté normalizada de 0 a 100\%.
+
+\input{reporte/incisob.tex}
     \item (5 puntos) La constante de la válvula $K _{VC}$ (\SI{}{\metre\cubed\second\tothe{-1}\%\tothe{-1}}) de forma que la acción de control esté normalizada de 0\% a 100\%.
+
+\input{reporte/incisoc.tex}
     \item (20 puntos) Implemente el sistema real en Simulink utilizando la ecuación del modelo
         dinámico del proceso tal como se observa en la Figura 2. %\hyperref[fig2]{Figura 2}. 
+\input{reporte/incisod.tex}
         \textbf{Debe indicar la condición inicial ($H_0$) en los parámetros del bloque Integrador.}
     \item (15 puntos) Calcule el valor de $T$, $K_1$, $K_2$ del modelo linealizado. Implemente el diagrama de bloques en Simulink del sistema tal como se observa en la Figura 3.
+\input{reporte/incisoe.tex}
     \item (20 puntos) Obtenga la respuesta del sistema (obtenida en el punto c) y compárela con la del sistema linealizado (obtenida en el punto d) \textbf{en una misma gráfica} utilizando Simulink/MATLAB, cuando ambos se encuentran en el punto de operación más probable y se producen los siguientes cambios:
+\input{reporte/incisof.tex}
         \begin{enumerate}[label=\roman*.]
             \item Un cambio escalón en la señal de control de $\Delta U = -2\%$, seguido de un cambio escalón en la perturbación de $\Delta D = -0.02$.
                 Considere que el sistema debe estabilizarse antes de aplicar el segundo cambio escalón.
@@ -85,10 +94,12 @@ realimentada esté normalizada de 0 a 100\%.
     \item (20 puntos) A partir de la ecuación de la característica estática obtenga utilizando MATLAB
 y en una misma figura, la curva estática del proceso para los tres posibles valores de la
 apertura de la válvula de salida. Muestra la relación entre $m(t)$ y $c(t)$. 
+\input{reporte/incisog.tex}
 \textbf{Indique en la figura el punto de operación más probable del sistema}. Presente la gráfica en su solución y comente sobre la forma de las curvas.
     \item (10 puntos) A partir de los resultados anteriores, observe la respuesta del nivel ante los
 cambios en el caudal de entrada y la apertura de la válvula de salida, ¿son razonables?
 Comente sobre la validez del modelo lineal cuando se producen cambios en el punto
 de operación del sistema.
+\input{reporte/incisoh.tex}
 \end{enumerate}
 
