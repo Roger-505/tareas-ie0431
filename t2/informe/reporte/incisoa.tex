@@ -1,0 +1,23 @@
+\textit{Solución.} Para obtener el modelo linealizado, considere primero el vector de estados \\$ \textbf{x} = [H(t)]$ y el vector de entradas $ \textbf{u} = [Q_e(t),\,Xvs(t)] ^{T}$.
+Al evaluar la \hyperref[eq2]{característica estática} en el punto de operación $ \textbf{x} _{0},\, \textbf{u} _{0}$, se busca $Q _{e,\,0}$. Note que $H _{0} = \SI{2.5}{m}$ y $X _{vs,\,0} = 0.5$ \label{po} se obtienen directamente del \hyperref[t1]{Cuadro 1}.
+\begin{align*}
+    H _{0} &= F (Q _{e,\,0},\,X _{vs,\,0})\\
+           &= \frac{1}{\rho g} \left( \frac{Q _{e,\,0}}{X _{vs,\,0}K _{vs}} \right) ^{2}\\
+    \frac{Q _{e,\,0}}{X _{vs,\,0} K _{vs}} &= \pm \sqrt{\rho g H _{0}}
+    \intertext{Note que la cantidad en el lado izquierdo de la ecuación siempre es positiva, ya que $Q _{e,\,0}$ se refiere al caudal \textbf{entrante} y no saliente, $X _{vs} \in [0.4,\,0.6]$ y $K _{vs} = 0.001$, según el \hyperref[t1]{Cuadro 1}. Por tanto:}
+    Q _{e,\,0} &= X _{vs,\,0} K _{vs} \sqrt{\rho g H _{0}}\\
+    Q _{e,\,0} &= \SI{0.07953}{\metre\cubed\per\second}
+\end{align*}
+
+A partir del valor anterior y \hyperref[po]{el resto de valores}, el punto de operación del proceso viene dado por los vectores:
+\begin{align*}
+   \textbf{x}_{0}= \begin{bmatrix}
+                        \SI{2.5}{m}
+                    \end{bmatrix} 
+                    \quad 
+    \textbf{u}_{0}= \begin{bmatrix}
+                        \SI{0.07953}{\metre\cubed\per\second}\\
+                        0.5
+                    \end{bmatrix}\numberthis\label{eq5}
+\end{align*}
+
