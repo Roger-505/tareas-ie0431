@@ -1,4 +1,4 @@
-\textit{Solución.} Para obtener el modelo linealizado, considere primero el vector de estados \\$ \textbf{x} = [H(t)]$ y el vector de entradas $ \textbf{u} = [Q_e(t) \ Xvs(t)] ^{T}$.
+\textit{Solución.} Para obtener el modelo linealizado, considere primero el vector de estados \\$ \textbf{x} = [H(t)]$ y el vector de entradas $ \textbf{u} = [Q_e(t) \ X _{vs}(t)] ^{T}$.
 Al evaluar la \hyperref[eq2]{característica estática} en el punto de operación $ \textbf{x} _{0},\, \textbf{u} _{0}$, se busca $Q _{e,\,0}$. Note que $H _{0} = \SI{2.5}{m}$ y $X _{vs,\,0} = 0.5$ \label{po} se obtienen directamente del \hyperref[t1]{Cuadro 1}.
 \begin{align*}
     H _{0} &= F (Q _{e,\,0},\,X _{vs,\,0})\\
@@ -11,11 +11,18 @@ Al evaluar la \hyperref[eq2]{característica estática} en el punto de operació
 
 A partir del valor anterior y \hyperref[po]{el resto de valores}, el punto de operación del proceso viene dado por los vectores:
 \begin{align*}
-   \textbf{x}_{0}= \begin{bmatrix}
+   \textbf{x}_{0}=  \begin{bmatrix}
+                        H _{0}
+                    \end{bmatrix} = 
+                    \begin{bmatrix}
                         \SI{2.5}{m}
                     \end{bmatrix} 
                     \quad 
     \textbf{u}_{0}= \begin{bmatrix}
+                        Q _{e,\,0}\\
+                        X _{vs,\,0}
+                    \end{bmatrix} = 
+                    \begin{bmatrix}
                         \SI{0.07953}{\metre\cubed\per\second}\\
                         0.5
                     \end{bmatrix}\numberthis\label{eq5}
